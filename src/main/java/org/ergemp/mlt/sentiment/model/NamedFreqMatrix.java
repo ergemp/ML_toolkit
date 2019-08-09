@@ -1,4 +1,4 @@
-package sentiment.model;
+package org.ergemp.mlt.sentiment.model;
 
 import java.util.ArrayList;
 import java.util.List;

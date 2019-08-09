@@ -1,9 +1,9 @@
-package sentiment.actor.prepare;
+package org.ergemp.mlt.sentiment.actor.prepare;
 
-import sentiment.model.FreqMatrix;
-import sentiment.model.NamedFreqMatrix;
-import sentiment.util.Concat;
-import sentiment.util.Contain;
+import org.ergemp.mlt.sentiment.model.FreqMatrix;
+import org.ergemp.mlt.sentiment.model.NamedFreqMatrix;
+import org.ergemp.mlt.sentiment.util.Concat;
+import org.ergemp.mlt.sentiment.util.Contain;
 
 import java.util.HashMap;
 import java.util.Map;

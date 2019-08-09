@@ -4,9 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>MLToolkit</groupId>
-    <artifactId>ML_toolkit</artifactId>
-    <version>1.0</version>
+    <groupId>org.ergemp.MLToolkit</groupId>
+    <artifactId>MLToolkit</artifactId>
+    <version>201908</version>
+
     <build>
         <plugins>
             <plugin>

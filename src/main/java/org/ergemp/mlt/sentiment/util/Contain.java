@@ -1,6 +1,6 @@
-package sentiment.util;
+package org.ergemp.mlt.sentiment.util;
 
-import sentiment.model.FreqMatrix;
+import org.ergemp.mlt.sentiment.model.FreqMatrix;
 
 import java.util.List;
 

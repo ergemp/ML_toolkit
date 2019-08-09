@@ -1,9 +1,7 @@
-package sentiment;
+package org.ergemp.mlt.sentiment;
 
-import sentiment.actor.prepare.PrepareBi;
-import sentiment.actor.prepare.PrepareTri;
-import sentiment.actor.prepare.PrepareUni;
-import sentiment.model.NamedFreqMatrix;
+import org.ergemp.mlt.sentiment.actor.prepare.PrepareTri;
+import org.ergemp.mlt.sentiment.model.NamedFreqMatrix;
 
 import java.util.Iterator;
 

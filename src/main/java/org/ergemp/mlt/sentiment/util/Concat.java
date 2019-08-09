@@ -1,4 +1,4 @@
-package sentiment.util;
+package org.ergemp.mlt.sentiment.util;
 
 public class Concat {
 
