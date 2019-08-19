@@ -1,5 +1,6 @@
 package org.ergemp.mlt.sentiment.model;
 
+import java.util.Iterator;
 import java.util.Map;
 
 public class FreqMatrix {
@@ -14,6 +15,25 @@ public class FreqMatrix {
 
     @Override
     public String toString() {
-        return "[" + word + "]";
+        String retVal = "";
+        try {
+            retVal += "\"word\":\"" + word + "\",";
+
+            Iterator<Map.Entry<String, Integer>> it = freq.entrySet().iterator();
+            while (it.hasNext()){
+                Map.Entry<String, Integer> entry = it.next();
+
+                retVal += "\"" + entry.getKey() + "\":\"" + entry.getValue() + "\",";
+            }
+
+            retVal = "{" + retVal.substring(0,retVal.length()-1) + "}";
+
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+        finally{
+            return retVal;
+        }
     }
 }
