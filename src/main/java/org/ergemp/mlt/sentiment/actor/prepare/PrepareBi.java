@@ -9,11 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PrepareBi {
-
-    public static NamedFreqMatrix prepare(NamedFreqMatrix gNamedFreqMatrix, String gStr)
-    {
-        try
-        {
+    public static NamedFreqMatrix prepare(NamedFreqMatrix gNamedFreqMatrix, String gStr) {
+        try {
             String[] words = gStr.split(" ");
             String word;
 

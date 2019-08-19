@@ -16,7 +16,7 @@ public class PrepareUni {
 
             for (int w = 0; w < words.length - (1) + 1; w++)
             {
-                word = Concat.concat(words, w, w+(1));
+                word = Concat.concat(words, w, w + (1));
                 int index = Contain.contain(gNamedFreqMatrix.listUniFreqMatrix, word);
                 if(index != -1) {
 
