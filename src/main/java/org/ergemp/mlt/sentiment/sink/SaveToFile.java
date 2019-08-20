@@ -2,6 +2,10 @@ package org.ergemp.mlt.sentiment.sink;
 
 import org.ergemp.mlt.sentiment.model.NamedFreqMatrix;
 import org.ergemp.mlt.sentiment.util.Config;
+import org.ergemp.mlt.sentiment.util.DeleteFile;
+
+import java.util.Iterator;
+import java.util.Map;
 
 public class SaveToFile {
 
@@ -11,68 +15,58 @@ public class SaveToFile {
         String newLine = "\r\n";
         String line = "";
 
-        try
-        {
-            if (!saveFile.exists())
-            {
+        try {
+            if (!saveFile.exists()) {
                 saveFile.createNewFile();
             }
-            else
-            {
-                deleteFile(saveFile.getAbsolutePath());
+            else {
+                DeleteFile.delete(saveFile.getAbsolutePath());
                 saveFile.createNewFile();
             }
 
             java.io.FileWriter fw = new java.io.FileWriter(saveFile, false);
 
             //write the unigrams
-            for (Integer c=0; c < this.listUniFreqMatrix.size() ; c++)
-            {
+            for (Integer c=0; c < gNamedFreqMatrix.listUniFreqMatrix.size() ; c++) {
                 line = "";
 
-                Iterator it = this.listUniFreqMatrix.get(c).freq.entrySet().iterator() ;
+                Iterator it = gNamedFreqMatrix.listUniFreqMatrix.get(c).freq.entrySet().iterator() ;
 
-                line += this.listUniFreqMatrix.get(c).word ;
+                line += gNamedFreqMatrix.listUniFreqMatrix.get(c).word ;
 
                 while (it.hasNext()) {
                     Map.Entry pair = (Map.Entry)it.next();
                     line += "$" + pair.getKey() + "=" + pair.getValue();
                     //it.remove();
                 }
-
                 fw.write(line);
                 fw.write(newLine);
-
             }
 
             //write the bigrams
-            for (Integer c=0; c < this.listBiFreqMatrix.size() ; c++)
-            {
+            for (Integer c=0; c < gNamedFreqMatrix.listBiFreqMatrix.size() ; c++) {
                 line = "";
 
-                Iterator it = this.listBiFreqMatrix.get(c).freq.entrySet().iterator() ;
+                Iterator it = gNamedFreqMatrix.listBiFreqMatrix.get(c).freq.entrySet().iterator() ;
 
-                line += this.listBiFreqMatrix.get(c).word ;
+                line += gNamedFreqMatrix.listBiFreqMatrix.get(c).word ;
 
                 while (it.hasNext()) {
                     Map.Entry pair = (Map.Entry)it.next();
                     line += "$" + pair.getKey() + "=" + pair.getValue();
                     //it.remove();
                 }
-
                 fw.write(line);
                 fw.write(newLine);
-
             }
 
             //write the trigrams
-            for (Integer c=0; c < this.listTriFreqMatrix.size() ; c++)
-            {
+            for (Integer c=0; c < gNamedFreqMatrix.listTriFreqMatrix.size() ; c++) {
                 line = "";
 
-                Iterator it = this.listTriFreqMatrix.get(c).freq.entrySet().iterator() ;
+                Iterator it = gNamedFreqMatrix.listTriFreqMatrix.get(c).freq.entrySet().iterator() ;
 
-                line += this.listTriFreqMatrix.get(c).word ;
+                line += gNamedFreqMatrix.listTriFreqMatrix.get(c).word ;
 
                 while (it.hasNext()) {
                     Map.Entry pair = (Map.Entry)it.next();
@@ -82,15 +76,11 @@ public class SaveToFile {
 
                 fw.write(line);
                 fw.write(newLine);
-
             }
-
             fw.flush();
             fw.close();
-
         }
-        catch (Exception Ex)
-        {
+        catch (Exception Ex) {
             System.out.println(Ex);
         }
     }
