@@ -22,6 +22,6 @@ public class SaveNgramsToFile {
         LabelTri.label(matrix, "fuck you", "negative");
         LabelTri.label(matrix, "you are most welcome my friend", "positive");
 
-        SaveToFile.save(matrix);
+        SaveToFile.save(matrix,"ngrams");
     }
 }

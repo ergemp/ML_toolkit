@@ -7,7 +7,7 @@ import org.ergemp.mlt.sentiment.source.LoadFromFile;
 public class LoadNgramsFromFile {
     public static void main(String[] args){
         NamedFreqMatrix myMatrix = new NamedFreqMatrix();
-        myMatrix = LoadFromFile.load();
+        myMatrix = LoadFromFile.load("ngrams");
         Print.print(myMatrix);
     }
 }

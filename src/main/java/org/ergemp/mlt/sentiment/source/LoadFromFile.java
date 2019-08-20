@@ -8,12 +8,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoadFromFile {
-    public static NamedFreqMatrix load(){
+    public static NamedFreqMatrix load(String gFileName){
 
         NamedFreqMatrix retMatrix = new NamedFreqMatrix();
 
         //i know where to read a file
-        java.io.File loadFile = new java.io.File(Config.folderName + "/ngrams");
+        java.io.File loadFile = new java.io.File(Config.folderName + "/" + gFileName );
         String line="";
 
         try {

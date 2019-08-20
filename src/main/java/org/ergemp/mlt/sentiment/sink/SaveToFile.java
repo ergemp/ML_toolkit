@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class SaveToFile {
 
-    public static void save(NamedFreqMatrix gNamedFreqMatrix){
+    public static void save(NamedFreqMatrix gNamedFreqMatrix, String gFileName){
         //create a new file under the folderName folder
-        java.io.File saveFile = new java.io.File(Config.folderName + "/ngrams");
+        java.io.File saveFile = new java.io.File(Config.folderName + "/" + gFileName);
         String newLine = "\r\n";
         String line = "";
 
