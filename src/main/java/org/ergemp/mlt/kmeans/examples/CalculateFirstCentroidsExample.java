@@ -27,13 +27,13 @@ public class CalculateFirstCentroidsExample {
         System.out.println("------------------------");
         PrintObservationSet.print(myMeans);
 
-        InitializeCentroids.initialize(myMeans,2);
+        InitializeCentroids.initialize(myMeans,4);
 
         System.out.println("printing centroids");
         System.out.println("------------------");
         PrintCentroids.print(myMeans);
 
-        CalculateFirstCentroids.calculate(myMeans,2);
+        CalculateFirstCentroids.calculate(myMeans,4);
         System.out.println("printing centroids");
         System.out.println("------------------");
         PrintCentroids.print(myMeans);

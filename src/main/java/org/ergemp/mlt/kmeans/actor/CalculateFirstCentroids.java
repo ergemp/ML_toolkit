@@ -14,12 +14,14 @@ public class CalculateFirstCentroids {
         Integer obsIndex = 0;
 
         try {
+            //initialize localSum matrix
             for (Integer a=0; a<localSum.length; a++) {
                 for (Integer aa=0; aa<localSum[a].length; aa++) {
                     localSum[a][aa] = null;
                 }
             }
 
+            //initialize localDistance array
             for (Integer a=0; a<localDistance.length; a++) {
                 localDistance[a] = null;
             }
@@ -30,75 +32,78 @@ public class CalculateFirstCentroids {
                 Double[] oDouble = (Double[]) itObs.next();
 
                 //calculate the distance with the observationList dimension
-                for (Integer j=0; j<oDouble.length; j++)
-                {
-
-                    if (oDouble[j] != null)
-                    {
+                for (Integer j=0; j<oDouble.length; j++) {
+                    if (oDouble[j] != null) {
                         //clear the cnt
                         cnt=0;
 
                         //for all the centroids calculate the distance and take the lowest as cluster
                         Iterator itCentroid = gKmeans.centroids.iterator();
-                        while (itCentroid.hasNext())
-                        {
+                        while (itCentroid.hasNext()) {
                             Double[] cDouble = (Double[]) itCentroid.next();
-                            if (cDouble[j] != null)
-                            {
+                            if (cDouble[j] != null) {
                                 //fill the localSum matrix
                                 //j is the dimension, support max 2 dimension
                                 //cnt is the cluster, support max 4 clusters
-                                if (localSum[j][cnt] != null)
-                                {
+                                if (localSum[j][cnt] != null) {
                                     localSum[j][cnt] = localSum[j][cnt] + java.lang.Math.pow(java.lang.Math.abs(oDouble[j]-cDouble[j]),2);
                                 }
-                                else
-                                {
+                                else {
                                     localSum[j][cnt] =  java.lang.Math.pow(java.lang.Math.abs(oDouble[j]-cDouble[j]),2);
                                 }
                                 //System.out.println(j + " " + cnt + " observation: " + lDouble[j] + " - " + "centroid: " + cDouble[j] + " dist: " + java.lang.Math.pow(java.lang.Math.abs(lDouble[j]-cDouble[j]),2));
                                 cnt ++;
                             }
-                            else
-                            {
+                            else {
 
                             }
                         }
                     }
                 }
 
-                //System.out.println("calculated");
+
                 //print localSum matrix
                 /*
+                System.out.println("calculated localSum");
                 for (Integer a=0; a<localSum.length; a++)
                 {
                     for (Integer aa=0; aa<localSum[a].length; aa++)
                     {
-                        System.out.println(a + " " + aa + " - " + localSum[a][aa].toString());
+                        if (localSum[a][aa] != null) {
+                            System.out.println(a + " " + aa + " - " + localSum[a][aa].toString());
+                        }
                     }
                 }
                 */
 
                 //calculate localDistance
-                for (Integer a=0; a<localSum.length; a++)
-                {
-                    for (Integer aa=0; aa<localSum[a].length; aa++)
-                    {
+                for (Integer a=0; a<localSum.length; a++) {
+                    for (Integer aa=0; aa<localSum[a].length; aa++) {
                         if (localDistance[aa] != null)
                             localDistance[aa] = localDistance[aa] + localSum[a][aa];
                         else
                             localDistance[aa] = localSum[a][aa];
                     }
                 }
-                for (Integer aa=0; aa<localDistance.length; aa++)
-                {
-                    if (localDistance[aa] != null)
-                    {
+
+                for (Integer aa=0; aa<localDistance.length; aa++) {
+                    if (localDistance[aa] != null) {
                         localDistance[aa] = java.lang.Math.sqrt(localDistance[aa]);
                     }
                 }
 
                 //print localDistance array
+                /*
+                System.out.println("calculated localDistance");
+                for (Integer a=0; a<localDistance.length; a++)
+                {
+                    if (localDistance[a] != null) {
+                        System.out.println(a + " - " + localDistance[a].toString());
+                    }
+                }
+                */
+
+                //calculate the closest centroid to the observation
                 Double tmpDistance = null;
                 Integer tmpIndex = 0;
                 for (Integer a=0; a<localDistance.length; a++) {
