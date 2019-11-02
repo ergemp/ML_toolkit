@@ -3,7 +3,7 @@ package org.ergemp.mlt.kmeans.model;
 public class KCentroid extends KData {
     public int id;
 
-    public KCentroid() {}
+    public KCentroid() { super(0.0, 0.0); }
 
     public KCentroid(int id, double x, double y) {
         super(x, y);

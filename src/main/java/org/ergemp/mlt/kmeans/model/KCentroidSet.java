@@ -8,6 +8,7 @@ public class KCentroidSet {
     private List<KCentroid> KCentroids;
 
     public KCentroidSet(){ KCentroids = new ArrayList<>(); }
+    public KCentroidSet(List<KCentroid> gKCentroidList){ KCentroids = gKCentroidList; }
 
     public List<KCentroid> getKCentroids() {
         return KCentroids;

@@ -4,8 +4,6 @@ import org.ergemp.mlt.kmeans.model.KCentroid;
 import org.ergemp.mlt.kmeans.model.KCentroidSet;
 import org.ergemp.mlt.kmeans.model.KData;
 
-import java.util.List;
-
 public class ClosestCentroid {
     public static Integer calculate(KCentroidSet gKCentroidSet, KData gKData){
 
@@ -23,7 +21,6 @@ public class ClosestCentroid {
                 closestCentroidId = centroid.id;
             }
         }
-
         return closestCentroidId;
     }
 }
