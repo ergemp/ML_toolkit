@@ -13,13 +13,12 @@ public class MergeSortUsage {
         for (Integer i=0; i<arr.length; i++){
             llist.add(arr[i]);
         }
+        System.out.println("main: " + llist.toString());
 
         MergeSort.divide(llist);
-        System.out.println(MergeSort.singular.toString());
+        System.out.println("main: " + MergeSort.singular.toString());
 
-        System.out.println(MergeSort.merge(MergeSort.singular.get(1), MergeSort.singular.get(4)).toString());
-
-        System.out.println(MergeSort.singular.toString());
-        System.out.println(MergeSort.singularTmp.toString());
+        MergeSort.merge();
+        System.out.println("main: " + MergeSort.singularTmp.toString());
     }
 }
